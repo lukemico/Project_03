@@ -1,12 +1,4 @@
-<h1>New Session</h1>
-
-<%= render 'form', session: @session %>
-
-<%= link_to 'Back', sessions_path %>
-
-
-<!--
-<%= form_tag("/login", class: "evento-form") do %>
+<%= form_tag("/login", class: "form") do %>
 
     <h1>Login</h1>
     <% if(flash[:login_error]) %>
@@ -26,4 +18,4 @@
     <div class="form-group">
         <%= submit_tag "Login", class: "btn register-btn" %>
     </div>
-<% end %> -->
+<% end %>

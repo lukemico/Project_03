@@ -3,23 +3,19 @@ class SessionController < ApplicationController
 
   # GET /sessions/new
   def new
-    @session = Session.new
   end
 
-  # POST /sessions
-  # POST /sessions.json
   def create
-    @session = Session.new(session_path)
-
-    respond_to do |format|
-      if @session.save
-        format.html { redirect_to @session, notice: 'Session was successfully created.' }
-        format.json { render :show, status: :created, location: @session }
-      else
-        format.html { render :new }
-        format.json { render json: @session.errors, status: :unprocessable_entity }
+    user = User.find_by :email => params[:email]
+  # raise "hell"
+  if user.present? && user.authenticate(params[:password])
+    session[:user_id] = user.id
+    flash[:notice] = "Login successful!"
+    redirect_to root_path
+  else
+    flash[:error] = "The password or email entered was incorrect!"
+    # redirect_to session_path
       end
-    end
   end
 
   # GET /sessions/1
