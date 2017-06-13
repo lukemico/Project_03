@@ -25,7 +25,6 @@ Rails.application.routes.draw do
   # DELETE
   delete "posts/:id(.:format)" => "posts#destroy"
 
-
   resources :sessions
   resources :users
   resources :pages
