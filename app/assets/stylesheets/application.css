@@ -16,15 +16,23 @@
 
 body {
   font-family: 'Reem Kufi', sans-serif;
+  color: white;
   text-align: center;
 }
 
-.fa fa-sign-in {
-  float:right;
+p {
+  color: white;
+  padding: 5px;
 }
 
-.fa fa-user-plus {
-  float: right;
+a {
+  color: white;
+  padding: 5px;
 }
+
+a:visited {
+  color: white;  
+}
+
 
 /*field_with_errors* add CSS properties/

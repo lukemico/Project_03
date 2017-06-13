@@ -10,125 +10,24 @@
 
   <body>
 
-
-
     <%= flash[:error] %>
 
-    <nav>
+    <nav class="main-nav">
       <% if @current_user %>
-        <%= link_to "Log Out", "/logout", method: :delete %>
-        <%= link_to @current_user.email, user_path(@current_user) %>
-        <%= link_to "Edit Profile", edit_user_path(@current_user) %>
-      <% else %>
-        <%= link_to "Login", "/login" %>
-        <%= link_to "Sign Up", "/users/new" %>
+      <%= link_to(user_path(@current_user.id)) do %>Hello,<%=@current_user.first_name%>
+      <%= link_to "Edit Profile", edit_user_path(@current_user) %>
+      <%= link_to "Log Out", "/logout", method: :delete %>
+      <% end %>
+    <% else %>
+      <%= link_to "Login", "/login" %>
+      <%= link_to "Sign Up", "/users/new" %>
       <% end %>
     </nav>
 
+<hr>
+
+<!-- <a class="navbar-brand" href="/">B-L-O-G__N-A-M-E__G-O-E-S__H-E-R-E</a> -->
+
     <%= yield %>
-  </body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html>
-  <head>
-    <title>Vision</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet">
-
-  </head>
-
-  <nav>
-     <div class="nav-wrapper">
-       <a href="#" class="brand-logo">V-I-S-I-O-N</a>
-       <ul id="nav-mobile" class="right hide-on-med-and-down">
-         <a href="/home">Home</a>
-         <a href="/login">Log in</a>
-         <a href="/register">Sign up</a>
-       </ul>
-     </div>
-   </nav> -->
-
-  <!-- <body>
-    <nav class="navbar navbar-fixed-top">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span> -->
-              <!-- <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">vision</a> -->
-          <!-- </div> -->
-          <!-- <div class="navbar-collapse collapse">
-             <ul class="nav navbar-nav navbar-right"> -->
-              <!-- <% if(@current_user) %>
-                <li>
-                  <%= link_to(user_path(@current_user.id)) do %>
-                    Hello, <%=@current_user.first_name%>! <i class="fa fa-user-circle-o"></i>
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to(edit_user_path(@current_user.id)) do %>
-                    Edit Profile <i class="fa fa-pencil"></i>
-                  <% end %>
-                </li>
-                <li>
-                  <a rel="nofollow" data-method="delete" href="/logout">Logout <i class="fa fa-sign-out"></i></a>
-                </li>
-              <% else %>
-                <a href="/login">Login <i class="fa fa-sign-in"></i></a>
-                <a href="/register">Sign up <i class="fa fa-user-plus"></i></a>
-              <% end %> -->
-            <!-- </li>  -->
-          </div>
-      </nav>
-
-      <main class="container">
-        <%= yield %>
-      </main>
-
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="copyright">
-              © 2017, General Assembly, WDi 21
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div class="design">
-              Built by Luke Mico
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <script src="//cdn.jsdelivr.net/medium-editor/latest/js/medium-editor.min.js"></script>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/medium-editor/latest/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
-
-    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwTkj64Y-mZqXKjJTsVIT9ETuR3B289tg &callback=initMap" type="text/javascript"></script> -->
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </body>
-</html>
-
   </body>
 </html>

@@ -15,6 +15,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = @current_user
+
       respond_to do |format|
         if @post.save
           format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -24,14 +26,33 @@ class PostsController < ApplicationController
           format.json { render json: @post.errors, status: :unprocessable_entity }
         end
       end
-    end
+  end
 
   def edit
+    @post = Post.find(params[:id])
   end
+
+  def update
+      @post = Post.find_by id: params[:id]
+      if @post.update (post_params)
+        redirect_to @post
+      else
+        render :edit
+      end
+  end
+
+  def destroy
+    @post = Post.find_by(id: params["id"])
+    @post.destroy
+    respond_to do |format|
+    format.html { redirect_to posts_url, notice: "Post was successfully deleted." }
+    format.json { head :no_content }
+    end
+end
 
   private
     def post_params
-      params.require(:post).permit(:heading, :content)
+      params.require(:post).permit(:title, :content)
     end
 
     def authorise

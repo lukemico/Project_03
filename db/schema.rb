@@ -12,12 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20170612013142) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "posts", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "date"
     t.string   "title"
     t.text     "content"
-    t.string   "author"
     t.string   "time"
     t.string   "url"
     t.datetime "created_at", null: false

@@ -1,6 +1,23 @@
 <p id="notice"><%= notice %></p>
+<p class="text-success"><%= flash[:success] %></p>
+<p class="text-danger"><%= flash[:signup_error] %></p>
+<h1>Your profile</h1>
 
-<h1>User Profile</h1>
+<div class="user-profile">
+  <p>
+    <strong>First name:</strong>
+    <%= @current_user.first_name %>
+  </p>
 
-<%= link_to 'Edit', edit_user_path(@user), class: "btn btn-default" %>
-<%= link_to 'Back', root_path, class: "btn btn-default" %>
+  <p>
+    <strong>Last name:</strong>
+    <%= @current_user.last_name %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= @current_user.email %>
+  </p>
+
+  <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-default" %>
+  <%= link_to 'Back', root_path, class: "btn btn-default" %>
