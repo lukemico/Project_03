@@ -19,5 +19,12 @@ body {
   text-align: center;
 }
 
+.fa fa-sign-in {
+  float:right;
+}
+
+.fa fa-user-plus {
+  float: right;
+}
 
 /*field_with_errors* add CSS properties/

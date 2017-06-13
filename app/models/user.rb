@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  has_many :posts
   has_secure_password
+
+  has_many :posts
 
   # geocoded_by :ip_address
   # after_validation :geocode

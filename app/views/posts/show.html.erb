@@ -1,14 +1,8 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @post.heading %></h1>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<p><%= @post.content %></p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+<%= @post.user.email %>
 
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

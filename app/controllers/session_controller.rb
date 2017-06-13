@@ -1,45 +1,27 @@
 class SessionController < ApplicationController
-  before_action :authorise, only: [:new]
-
-  # GET /sessions/new
   def new
   end
 
   def create
-    user = User.find_by :email => params[:email]
-  # raise "hell"
-  if user.present? && user.authenticate(params[:password])
-    session[:user_id] = user.id
-    flash[:notice] = "Login successful!"
-    redirect_to root_path
-  else
-    flash[:error] = "The password or email entered was incorrect!"
-    # redirect_to session_path
-      end
-  end
+    email = params["email"]
+    password = params["password"]
 
-  # GET /sessions/1
-  # GET /sessions/1.json
-  def show
-  end
+    user = User.find_by(email: email)
+    # If the user exists and you provided the right password
+    if user.present? && user.authenticate(password)
 
-  # GET /sessions/1/edit
-  def edit
-  end
+      session[:user_id] = user.id
+      redirect_to "/users"
 
-  # DELETE /sessions/1
-  # DELETE /sessions/1.json
-  def destroy
-    session[:user_id] = nil
-    redirect_to("/login")
-  end
-
-  private
-  def authorise
-    if(@current_user)
-      flash[:error] = "You are already logged in."
-      redirect_to(user_path(@current_user.id))
+    else
+      flash[:login_error] = "The password or email was incorrect"
+      # Show the login form again (potentially with a temporary message)
+      render :new # Show the new form
     end
   end
 
+  def destroy
+    session[:user_id] = nil
+    redirect_to "/users"
+  end
 end
