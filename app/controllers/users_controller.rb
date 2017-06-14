@@ -18,16 +18,14 @@ class UsersController < ApplicationController
     @user = User.new( user_params )
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path( @user )
-        # raise 'An error has occured'
+      redirect_to insta
     else
-      render :new # Show them the Sign Up form again
+      render :new # Show the Sign Up form again
     end
   end
 
   def edit
     @user = User.find(params[:id])
-
   end
 
 def update
@@ -50,6 +48,15 @@ def update
         redirect_to "/users"
       end
     end
+
+    def instagram
+      code = params[:code]
+
+
+    #  'https://api.instagram.com/oauth/authorize/?client_id=ccbcf2506db24fc4a6338955edf5d4a7&redirect_uri=https://sheltered-atoll-46544.herokuapp.com&response_type=code'
+    'https://api.instagram.com/oauth/authorize/?client_id=ccbcf2506db24fc4a6338955edf5d4a7&redirect_uri=http://localhost:3000/posts&response_type=code'
+  end
+    # end
 
     def check_if_logged_in
       unless @current_user

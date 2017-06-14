@@ -2,31 +2,22 @@
 
 <h1>Posts</h1>
 
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead> -->
+  <%= link_to 'New Post', new_post_path %>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <ul>
+  <br>
 
-        <div><%= post.title %></div>
-        <div><%= post.content %></div>
+<tbody>
+  <% @posts.each do |post| %>
 
-        <!-- <div><%= link_to 'Show', post %></div> -->
+  <ul>
 
-      </ul>
+    <div><%= post.title %></div>
+    <div><%= post.content %></div>
 
-    <% end %>
-  </tbody>
+    <!-- <div><%= link_to 'Show', post %></div> -->
+
+  </ul>
+
+  <% end %>
+</tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>

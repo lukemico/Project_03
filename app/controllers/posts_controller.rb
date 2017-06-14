@@ -2,8 +2,17 @@ class PostsController < ApplicationController
   before_action :authorise, only: [:new, :create]
 
   def index
+    if params[:code]
+      code = params[:code]
+      puts "codeeeee"
+      p code
+      # @current_user.update(insta_token: code)
+    end
     @posts = Post.all
+    # binding.pry
+
   end
+
 
   def show
     @post = Post.find_by(id: params["id"])

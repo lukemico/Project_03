@@ -14,7 +14,7 @@
 
     <nav class="main-nav">
       <% if @current_user %>
-      <%= link_to(user_path(@current_user.id)) do %>Hello,<%=@current_user.first_name%>
+      <%= link_to(user_path(@current_user.id)) do %>Hello, <%=@current_user.first_name%>
       <%= link_to "Edit Profile", edit_user_path(@current_user) %>
       <%= link_to "Log Out", "/logout", method: :delete %>
       <% end %>
@@ -25,8 +25,6 @@
     </nav>
 
 <hr>
-
-<!-- <a class="navbar-brand" href="/">B-L-O-G__N-A-M-E__G-O-E-S__H-E-R-E</a> -->
 
     <%= yield %>
   </body>
