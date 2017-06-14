@@ -4,9 +4,9 @@ class SessionController < ApplicationController
 
   def create
     email = params["email"]
-    password = params["password"]  
+    password = params["password"]
     user = User.find_by(email: email)
-    # If the user exists and you provided the right password
+
     if user.present? && user.authenticate(password)
 
       session[:user_id] = user.id

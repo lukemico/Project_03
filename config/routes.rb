@@ -9,12 +9,14 @@ Rails.application.routes.draw do
   delete "/logout" => "session#destroy"
   get "/register" => "users#new"
 
+  resources :posts
   get "/posts/:code" => "posts#show"
+  post "/users/:id/add_token" => "users#add_token"
 
   resources :sessions
+  # get "/users/insta" => "users#get_insta_access_code"
   resources :users
   resources :pages
-  resources :posts
   resources :home
 
 end

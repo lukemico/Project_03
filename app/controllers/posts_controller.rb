@@ -2,23 +2,29 @@ class PostsController < ApplicationController
   before_action :authorise, only: [:new, :create]
 
   def index
-    if params[:code]
-      code = params[:code]
-      puts "codeeeee"
-      p code
-      # @current_user.update(insta_token: code)
-    end
-    @posts = Post.all
     # binding.pry
-
+    # access_token = request.fullpath.split('=').last
+    # if access_token
+    #   code = access_token
+    #   puts "codeeeee"
+    #   p code
+    #   @current_user.update(code: code)
+    # end
+    @posts = Post.all
   end
-
 
   def show
     @post = Post.find_by(id: params["id"])
+    content = @post.content
+    keyword = content.split(/\W/).sample
+    url = "https://www.instagram.com/explore/tags/#{keyword}/?__a=1"
+    response = HTTParty.get url
+    images = response["tag"]["media"]["nodes"]
+    @images = images.sample(5)
   end
 
   def new
+    # binding.pry
     @post = Post.new
   end
 
