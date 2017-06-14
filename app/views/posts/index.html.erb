@@ -15,13 +15,12 @@
   <tbody>
     <% @posts.each do |post| %>
       <ul>
-          <li><%= post.date %></li>
-          <li><%= post.title %></li>
 
-        <li><%= link_to 'Show', post %></li>
+        <div><%= post.title %></div>
+        <div><%= post.content %></div>
 
-        <!-- <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        <!-- <div><%= link_to 'Show', post %></div> -->
+
       </ul>
 
     <% end %>
