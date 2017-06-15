@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     url = "https://www.instagram.com/explore/tags/#{keyword}/?__a=1"
     response = HTTParty.get url
     images = response["tag"]["media"]["nodes"]
-    @images = images.sample(5)
+    @images = images.sample(4)
   end
 
   def new

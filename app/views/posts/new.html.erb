@@ -1,5 +1,28 @@
 <h1>Create Post</h1>
 
-<%= render 'form', post: @post %>
+<div class="editable"></div>
+
+<script>
+  var editor = new MediumEditor('.editable', {
+    // options go here
+  });
+</script>
+
+<div class="field">
+  <%= f.label :title %>
+  <%= f.text_area :title, placeholder: "Title" %>
+</div>
+
+<div class="field">
+  <%= f.label :content %>
+  <%= f.text_area :content, placeholder: "Tell your story..." %>
+</div>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
 
 <%= link_to 'Back', posts_path %>
+<% end %>
+
+<% end %>

@@ -7,6 +7,10 @@ end
 
 gem 'httparty'
 
+gem 'railties', '~> 5.0', '>= 5.0.0.1'
+
+gem 'medium-editor-rails'
+# Use for WYSIWYG meidum Editor
 gem 'materialize-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'
