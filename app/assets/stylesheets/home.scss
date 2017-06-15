@@ -2,11 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
-// .main-nav {
-//   float: right;
-// }
 body {
   background:
   url("https://images.unsplash.com/photo-1490822002085-64a612f919d6?dpr=2&auto=format&fit=crop&w=1080&h=720&q=80&cs=tinysrgb&crop=&bg=") no-repeat center center fixed;
@@ -14,4 +9,19 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.landing {
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    width:30em;
+    height:18em;
+    margin-top: -9em; /*set to a negative number 1/2 of your height*/
+    margin-left: -15em; /*set to a negative number 1/2 of your width*/
+    font-size: 20px;
+}
+
+.main-nav-home {
+  color: red;
 }

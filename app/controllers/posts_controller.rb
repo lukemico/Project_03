@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     url = "https://www.instagram.com/explore/tags/#{keyword}/?__a=1"
     response = HTTParty.get url
     images = response["tag"]["media"]["nodes"]
-    images = images.select { |img| img["likes"]["count"] > 70 }
+    images = images.select { |img| img["likes"]["count"] > 100 }
     # images = ["likes"] > 100
     @images = images.sample(6)
   end
@@ -57,6 +57,20 @@ class PostsController < ApplicationController
         render :edit
       end
   end
+
+  def search_posts
+      input = params["content"]
+      near_by_locations = Location.near("#{input}, Australia", 5)
+      @posts = near_by_locations.map do |e|
+        e.events
+      end
+      if (!@events.any?)
+        flash[:error] = "Your search didn't have any results."
+        redirect_to("/")
+      end
+
+    end
+
 
   def destroy
     @post = Post.find_by(id: params["id"])

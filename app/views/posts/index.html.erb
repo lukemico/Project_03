@@ -1,24 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+<div class="backg">
+
+  <h1>Posts</h1>
 
   <%= link_to 'New Post', new_post_path %>
 
   <br>
 
-<tbody>
-  <% @posts.each do |post| %>
+  <hr>
 
-  <ul>
+  <tbody>
+    <% @posts.each do |post| %>
 
-    <div><%= post.title %></div>
-    <span class="more"><%= post.content %> </span>
+    <ul>
+      <div><%= link_to post.title, post %></div>
+      <span class="more"><%= post.content %>
+      </span>
+      <div><%= link_to 'Read more...', post %></div>
+    </ul>
 
-    <div><%= link_to 'Show', post %></div>
+    <div class="gap"></div>
 
-  </ul>
+    <% end %>
 
-  <% end %>
-
-</tbody>
+  </tbody>
 </table>
+</div>
