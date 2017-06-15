@@ -1,3 +1,25 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+img  {
+  height: 200px;
+  width: 25%;
+  margin: 0 auto;
+}
+
+.morecontent span {
+    display: none;
+}
+.morelink {
+    display: block;
+}
+
+textarea {
+  width: 500px;
+}
+
+#post_content {
+  height: 90px;
+}
