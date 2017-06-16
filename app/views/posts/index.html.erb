@@ -1,10 +1,9 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
+
+<h1><%= link_to 'create a new post...', new_post_path %>
+</h1>
 
 <div class="backg">
-
-  <h1>Posts</h1>
-
-  <%= link_to 'New Post', new_post_path %>
 
   <br>
 
@@ -14,7 +13,9 @@
     <% @posts.each do |post| %>
 
     <ul>
-      <div><%= link_to post.title, post %></div>
+      <div>
+        <h1><%= link_to post.title, post %></h1>
+      </div>
       <span class="more"><%= post.content %>
       </span>
       <div><%= link_to 'Read more...', post %></div>

@@ -126,7 +126,7 @@ user15 = User.create({
 Post.destroy_all
 
 post1 = Post.create({
-user_id: 100,
+user_id: user1,
 date: Date.today + 3.days,
 title: 	"The Unnecessary Fragmentation of Design Jobs",
 content: 	"Lots and lots of people – inside and outside the industry are getting more and more confused by the nearly weekly new definition of the designer’s role and title. Agencies are crowning their new Senior UX Consultant, offering UI Tweak Ninja vacancies and re-arranging their multidisciplinary creative teams with a mix of UX/UI people, Product Designers and Front End Designers. Are you still explaining to your clients what kind of work you’re currently up to and what is not on your skill set? For an outsider, the differences are extremely subtle. I’ve been talking to a lot of industry newcomers lately, and they’re almost unanimously confused. They’re struggling to gain the right experience and make portfolios to match our foggy job definitions. And in the end – as Jonas noted – it’s all getting back to the beginning: a web designer, who is working on writing, visuals, code and his/hers own project management. No matter if you are a freelancer or working in a team for an agency or company. It’s just a name changing game."

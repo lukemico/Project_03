@@ -1,28 +1,27 @@
 class PostsController < ApplicationController
   before_action :authorise, only: [:new, :create]
 
-  def index
-    # binding.pry
-    # access_token = request.fullpath.split('=').last
-    # if access_token
-    #   code = access_token
-    #   puts "codeeeee"
-    #   p code
-    #   @current_user.update(code: code)
-    # end
-    @posts = Post.all
-  end
-
   def show
     @post = Post.find_by(id: params["id"])
     content = @post.content
-    keyword = content.split(/\W/).sample
+    keyword = content.gsub(/<.*?>/, "").split(/\W/).sample
     url = "https://www.instagram.com/explore/tags/#{keyword}/?__a=1"
     response = HTTParty.get url
-    images = response["tag"]["media"]["nodes"]
-    images = images.select { |img| img["likes"]["count"] > 100 }
-    # images = ["likes"] > 100
-    @images = images.sample(6)
+
+
+    if response["tag"]["media"]
+      images = response["tag"]["media"]["nodes"]
+      images = images.select { |img| img["likes"]["count"] > 5 }
+      # images = ["likes"] > 100
+      @images = images.sample(6)
+    else
+      @images = []
+    end
+  end
+
+  def index
+    @posts = Post.all
+
   end
 
   def new
@@ -60,14 +59,14 @@ class PostsController < ApplicationController
 
   def search_posts
       input = params["content"]
-      near_by_locations = Location.near("#{input}, Australia", 5)
-      @posts = near_by_locations.map do |e|
-        e.events
-      end
-      if (!@events.any?)
-        flash[:error] = "Your search didn't have any results."
-        redirect_to("/")
-      end
+      # near_by_locations = Location.near("#{input}, Australia", 5)
+      # @posts = near_by_locations.map do |e|
+      #   e.events
+      # end
+      # if (!@events.any?)
+      #   flash[:error] = "Your search didn't have any results."
+      #   redirect_to("/")
+      # end
 
     end
 

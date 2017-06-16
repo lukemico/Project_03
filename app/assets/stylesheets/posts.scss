@@ -2,18 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-img  {
+img {
   height: 200px;
   width: 25%;
   margin: 0 auto;
 }
 
 .morecontent span {
-    display: none;
+  display: none;
 }
+
 .morelink {
-    display: block;
+  display: block;
 }
 
 textarea {
@@ -25,15 +25,52 @@ textarea {
 }
 
 .backg {
-width: 80%;
-background-color: rgba(255,255,255,0.3);
-margin:0 auto;
+  width: 80%;
+  height: 100vh;
+  background-color: rgba(255,255,255,0.4);
+  margin: 0 auto;
 }
 
 .p {
-  width: 70%;
+  width: 80%;
 }
 
 .gap {
   height: 2px;
+}
+
+h1 {
+  color: black;
+}
+
+.a {
+  color: black;
+}
+
+
+a {
+  color: black;
+}
+
+.title {
+  color: black;
+  font-size: 20px;
+}
+
+h1 {
+  color: black;
+
+}
+
+h2 {
+  color: black;
+
+}
+
+span.more {
+  color: black;
+}
+
+.backg.ul.div.a {
+  font-size: 20px;
 }

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/register" => "users#new"
 
   resources :posts
+  get "/posts/new" => "posts#new"
   get "/posts/:code" => "posts#show"
   post "/users/:id/add_token" => "users#add_token"
   get "/search_posts" => "posts#search_posts"

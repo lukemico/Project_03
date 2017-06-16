@@ -24,7 +24,7 @@ a {
   color: #000;
 
   &:visited {
-    color: #666;
+    color: #000;
   }
 
   &:hover {
@@ -50,7 +50,7 @@ div {
 }
 
 #notice {
-  color: green;
+  color: skyblue;
 }
 
 .field_with_errors {
@@ -86,4 +86,10 @@ div {
 
 label {
   display: block;
+}
+
+.backg {
+width: 80%;
+background-color: rgba(255,255,255,0.4);
+margin:0 auto;
 }
